@@ -5,10 +5,6 @@ import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.lang.invoke.MethodHandles;
 
 public class MainScreen extends AbstractPage {
 
@@ -21,8 +17,6 @@ public class MainScreen extends AbstractPage {
     @FindBy(id = "android:id/parentPanel")
     private OpenCameraModal openCameraModal;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-
     public MainScreen(WebDriver driver) {
         super(driver);
         if (openCameraModal.isUIObjectPresent()) {
@@ -32,12 +26,10 @@ public class MainScreen extends AbstractPage {
 
     public void takePhoto() {
         takePhotoBtn.click();
-        LOGGER.info("Taking mock photo");
     }
 
     public GalleryScreen openGallery() {
         galleryBtn.click();
-        LOGGER.info("Opening gallery");
         return new GalleryScreen(getDriver());
     }
 
